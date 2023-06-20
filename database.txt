@@ -1,0 +1,29 @@
+  Books_Title varchar(255) NOT NULL,
+  Books_publisher varchar(255) NOT NULL,
+  Books_Year datetime NOT NULL,
+  Books_number int NOT NULL,
+  Books_ISBN varchar(255) NOT NULL,
+);
+CREATE TABLE Lendings(
+Lendings_ID int IDENTITY PRIMARY KEY NOT NULL,
+Lendings_Date datetime NOT NULL,
+Lendings_User int NOT NULL,
+Lendings_Book varchar(255) NOT NULL,
+Lendings_Count int DEFAULT 1 NOT NULL,
+);
+
+
+CREATE TABLE Users(
+Users_ID int IDENTITY PRIMARY KEY NOT NULL,
+Users_Person_id varchar(255) NOT NULL,
+Users_Password varchar(555) NOT NULL
+);
+
+CREATE TABLE LendingToUser(
+ LendingToUser_ID int IDENTITY PRIMARY KEY NOT NULL,
+ LendingToUser_UserID int NOT NULL,
+ LendingsBook_ID int NOT NULL,
+ FOREIGN KEY (LendingsBook_ID) REFERENCES Lendings (Lendings_ID),
+ FOREIGN KEY (LendingToUser_userID) REFERENCES Users (Users_ID)
+);
+
