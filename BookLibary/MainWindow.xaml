@@ -1,0 +1,84 @@
+﻿<Window ResizeMode="NoResize" x:Class="BookLibary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookLibary"
+         xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d"
+		WindowStyle="none"
+		  Title="crud" Height="600" Width="800"
+        Background="White">
+         <Window.Resources>
+      <FontFamily x:Key="FontAwesome">/Fonts/FontAwesome.ttf#FontAwesome</FontFamily>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#222"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderThickness="0" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#222"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <TranslateTransform X="1" Y="1"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+	
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="13*"/>
+                <RowDefinition Height="127*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Background="GreenYellow" Margin="0,0,641.6,0" Grid.RowSpan="2">
+
+                <StackPanel Margin="10" Orientation="Horizontal">
+                    <fa:ImageAwesome Icon="User" Width="20" Height="20"/>
+                   <Button BorderThickness="0" Background="Transparent" Height="40px" Content="users" Click="MenuItem_Click" Width="137" FontFamily="Arial" FontSize="20"/> 
+                </StackPanel>
+                <StackPanel Margin="10" Orientation="Horizontal">
+                    <fa:ImageAwesome Icon="Book" Width="20" Height="20"/>
+                    <Button BorderThickness="0" Background="Transparent"  Height="40px" Content="books" Click="MenuItem_Click" Width="137" FontFamily="Arial" FontSize="20"/>
+                </StackPanel>
+                <StackPanel Margin="10" Orientation="Horizontal">
+                    <fa:ImageAwesome Icon="Pencil" Width="20" Height="20"/>
+                    <Button BorderThickness="0" Background="Transparent"  Height="40px" Content="lending" Click="MenuItem_Click" Width="138" FontFamily="Arial" FontSize="20"/>
+                </StackPanel>
+                <StackPanel Margin="10" Orientation="Horizontal">
+                    <fa:ImageAwesome Icon="RotateLeft" Width="20" Height="20"/>
+                    <Button BorderThickness="0" Background="Transparent"  Height="40px" Content="return" Click="MenuItem_Click" Width="138" FontFamily="Arial" FontSize="20"/>
+                </StackPanel>
+                <StackPanel Margin="10" Orientation="Horizontal">
+                    <fa:ImageAwesome Icon="Eye" Width="20" Height="20"/>
+                    <Button BorderThickness="0" Background="Transparent"  Height="40px" Content="overview" Click="MenuItem_Click" Width="138" FontFamily="Arial" FontSize="20"/>
+                </StackPanel>
+
+            </StackPanel>
+            <Frame Grid.Column="1" x:Name="contentFrame" Margin="157,0,-0.4,0" Grid.RowSpan="2" Navigated="contentFrame_Navigated"/>
+        </Grid>
+    </Grid>
+</Window>

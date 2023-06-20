@@ -1,0 +1,40 @@
+﻿<Window x:Class="BookLibary.ElevMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:local="clr-namespace:BookLibary"
+        mc:Ignorable="d"
+        Title="ElevMenu" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="13*"/>
+                <RowDefinition Height="127*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Background="GreenYellow" Margin="0,0,641.6,0" Grid.RowSpan="2">
+
+                <StackPanel Margin="10" Orientation="Horizontal"/>
+                <StackPanel Margin="10" Orientation="Horizontal"/>
+                <StackPanel Margin="10" Orientation="Horizontal">
+                    <fa:ImageAwesome Icon="Pencil" Width="20" Height="20"/>
+                    <Button BorderThickness="0" Background="Transparent"  Height="40px" Content="lending" Click="MenuItem_Click" Width="138" FontFamily="Arial" FontSize="20"/>
+                </StackPanel>
+                <StackPanel Margin="10" Orientation="Horizontal">
+                    <fa:ImageAwesome Icon="RotateLeft" Width="20" Height="20"/>
+                    <Button BorderThickness="0" Background="Transparent"  Height="40px" Content="return" Click="MenuItem_Click" Width="138" FontFamily="Arial" FontSize="20"/>
+                </StackPanel>
+                <StackPanel Margin="10" Orientation="Horizontal"/>
+
+            </StackPanel>
+            <Frame Grid.Column="1" x:Name="contentFrame" Margin="157,0,-0.4,0" Grid.RowSpan="2" Navigated="contentFrame_Navigated"/>
+        </Grid>
+    </Grid>
+</Window>
